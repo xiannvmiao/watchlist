@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ name }}</title>
+</head>
+<body>
+    <h2>{{ name }}watchlist</h2>
+    <p>{{ movies|length }}个主题</p>
+    <ul>
+        {% for item in movies %}
+        <li>{{ item.get('title')}} - {{item.get('year')}}</li>
+        {% endfor %}
+        
+    </ul>
+</body>
+<footer>
+    <small>
+        <span>&copy; 2018 </span>
+        <a href="http://helloflask.com/book/3">HelloFlask</a>
+    </small>
+</footer>
+</html>
