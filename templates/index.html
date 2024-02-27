@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="{{ url_for('static',filename='favicon.icon') }}">
     
-    <title>{{ name }}</title>  
+    <title>{{ user.name }}</title>  
     <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}" type="text/css">
 </head>
 <body>
     <h2>
         <img class="avatar" src="{{ url_for('static',filename='images/avatar.png') }}" alt="Avatar">
-        {{ name }}'s watchlist
+        {{ user.name }}'s watchlist
     </h2>
     <p>{{ movies|length }}个主题</p>
     <ul class="movie-list">
         {% for item in movies %}
-        <li>{{ item.get('title')}} - {{item.get('year')}}</li>
+        <li>{{ item.title}} - {{item.year}}</li>
         {% endfor %}
         
     </ul>
