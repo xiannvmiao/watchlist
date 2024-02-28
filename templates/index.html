@@ -1,32 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="{{ url_for('static',filename='favicon.icon') }}">
-    
-    <title>{{ user.name }}</title>  
-    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}" type="text/css">
-</head>
-<body>
-    <h2>
-        <img class="avatar" src="{{ url_for('static',filename='images/avatar.png') }}" alt="Avatar">
-        {{ user.name }}'s watchlist
-    </h2>
-    <p>{{ movies|length }}个主题</p>
-    <ul class="movie-list">
-        {% for item in movies %}
-        <li>{{ item.title}} - {{item.year}}</li>
-        {% endfor %}
-        
-    </ul>
-</body>
-<footer>
-    <small>
-        <span>&copy; 2018 </span>
-        <a href="http://helloflask.com/book/3">HelloFlask</a>
-    </small>
-    <img class="totoro" src="{{ url_for('static',filename='images/totoro.gif') }}" alt="Walking totoro">
+{% extends 'base.html' %}
 
-</footer>
-</html>
+{% block content%}
+<p>{{ movies|length }}个主题</p>
+<ul class="movie-list">
+    {% for item in movies %}
+    <li>
+        {{ item.title}} - {{item.year}}
+        <span class="float-right">
+            <a class="imdb" href="https://www.imdb.com/find?q={{ item.title }}" target="_blank" title="Find this movie on IMDb">IMDb</a>
+        </span>
+    </li>
+    {% endfor %}
+    
+</ul>
+<img class="totoro" src="{{ url_for('static',filename='images/totoro.gif') }}" alt="Walking totoro">
+{% endblock %}
