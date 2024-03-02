@@ -1,0 +1,10 @@
+    {% extends 'base.html' %}
+    {% block content %}
+    <form method="post">
+        用户名<br>
+        <input type="text" id="username" name="username" required><br><br>
+        密码<br>
+        <input type="password" id="password" name="password" required><br><br>
+        <input class='btn' type="submit" value="提交">
+    </form>
+    {% endblock %}
